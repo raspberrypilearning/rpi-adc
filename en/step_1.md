@@ -1,59 +1,32 @@
-## Introduction
+## Analogue inputs
 
-Add project description here. What will learners be making? Broadly what skills will they be learning?
+The Raspberry Pi's GPIO pins are digital pins, so you can only set outputs to high or low, or read inputs as high or low. However, using an ADC chip (Analogue-to-Digital converter), you can read the value of analogue input devices such as potentiometers.
 
-### What you will make
+### SPI
 
---- no-print ---
-Add instructions for interacting with the embedded content here.
+The analogue values are communicated to the Pi using the SPI protocol. While this will work in GPIO Zero out of the box, you may get better results if you enable full SPI support.
 
-<div class="scratch-preview">
-  <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/160619869/?autostart=false" frameborder="0"></iframe>
-</div>
---- /no-print ---
+--- task ---
 
---- print-only ---
-![Complete project](images/showcase_static.png)
---- /print-only ---
+Open a terminal window and install the `spidev` package:
 
---- collapse ---
----
-title: What you will need
----
-### Hardware
+    ```bash
+    sudo apt-get install python3-spidev python-spidev
+    ```
 
-+ A computer or tablet capable of running Scratch 3
+--- /task ---
 
-### Software
+--- task ---
 
-+ Scratch 3 (either [online](https://scratch.mit.edu/){:target="_blank"} or [offline](https://scratch.mit.edu/download){:target="_blank"})
-+ Python 3
-+ This project can be completed in a web browser using [trinket.io](https://trinket.io/)
+Open the **Raspberry Pi Configuration** dialogue from the main menu and enable **SPI** in the **Interfaces** tab:
 
-### Downloads
+![Enable SPI](images/rcgui.png)
 
-+ Download the project [starter file](https://rpf.io/p/en/projectName-go){:target="_blank"} if working offline
+--- /task ---
 
---- /collapse ---
+--- task ---
 
---- collapse ---
----
-title: What you will learn
----
+Click **OK** and reboot the Pi.
 
-+ Learning objective 1
-+ Learning objective 2
-+ Learning objective 3
+--- /task ---
 
---- /collapse ---
-
---- collapse ---
----
-title: Additional information for educators
----
-
-You can download the completed project [here](https://rpf.io/p/en/projectName-get){:target="_blank"}.
-
-If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
-
---- /collapse ---

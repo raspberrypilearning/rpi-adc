@@ -1,11 +1,12 @@
-title: default-project-template
+title: Raspberry Pi - Analogue / Digital Converter
 hero_image: images/banner.png
-description: default-project-template description
+description: Connect an ADC to your raspberyr pi to use PWM.
 version: 4
 listed: false
 copyedit: false
 last_tested: "2022-05-19"
 steps:
   - title: Introduction
-  - title: Step title
+  - title: Connect the ADC
+  - title: Code the ADC
   - title: What next?
