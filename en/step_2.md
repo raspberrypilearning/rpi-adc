@@ -15,6 +15,7 @@ Now that the ADC is connected to the Pi, you can wire devices up to the input ch
 ![Potentiometer](images/potentiometer.png)
 
 A potentiometer's pins are ground, data, and 3V3. This means you connect it to ground and a supply of 3V3, and read the actual voltage from the middle pin.
+
 --- task ---
 
 Place a potentiometer on the breadboard and wire one side to the ground rail, the other to the 3V3 rail, and the middle pin to the first input channel as shown:
@@ -23,9 +24,7 @@ Place a potentiometer on the breadboard and wire one side to the ground rail, th
 
 --- /task ---
 
-### Code
-
-Now your potentiometer is connected and its value can be read from Python!
+Now your potentiometer is connected and its value can be read from Python. Test it now.
 
 --- task ---
 
