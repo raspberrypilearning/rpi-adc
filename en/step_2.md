@@ -36,9 +36,17 @@ Open your code editor and start a new script.
 
 Start by importing the `MCP3008` class from the GPIO Zero library:
 
-    ```python
-    from gpiozero import MCP3008
-    ```
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights: 
+---
+from gpiozero import MCP3008
+
+--- /code ---
 
 --- /task ---
 
@@ -46,9 +54,18 @@ Start by importing the `MCP3008` class from the GPIO Zero library:
 
 Create an object representing your analogue device:
 
-    ```python
-    pot = MCP3008(0)
-    ```
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights: 2
+---
+from gpiozero import MCP3008
+pot = MCP3008(0)
+
+--- /code ---
 
     Note the `0` represents the ADC's channel 0. There are 8 channels (0 to 7), and you're using the first one.
 
@@ -58,9 +75,19 @@ Create an object representing your analogue device:
 
 Try to read its value:
 
-    ```python
-    print(pot.value)
-    ```
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights: 3
+---
+from gpiozero import MCP3008
+pot = MCP3008(0)
+print(pot.value)
+
+--- /code ---
 
 --- /task ---
 
@@ -74,10 +101,20 @@ Run your code. You should see a number between 0 and 1. This represents how far 
 
 Now read the value in a loop:
 
-    ```python
-    while True:
-        print(pot.value)
-    ```
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights: 3-4
+---
+from gpiozero import MCP3008
+pot = MCP3008(0)
+while True:
+    print(pot.value)
+
+--- /code ---
 
 Try twisting the dial around to see the value change.
 

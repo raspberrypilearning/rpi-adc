@@ -10,9 +10,9 @@ The analogue values are communicated to the Pi using the SPI protocol. While thi
 
 Open a terminal window and install the `spidev` package:
 
-    ```bash
-    sudo apt-get install python3-spidev python-spidev
-    ```
+```bash
+sudo apt-get install python3-spidev python-spidev
+```
 
 --- /task ---
 

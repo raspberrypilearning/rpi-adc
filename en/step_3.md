@@ -12,9 +12,17 @@ Add an LED to your breadboard and wire it to the Pi, connecting it to GPIO pin 2
 
 In your Python code, start by importing the `PWMLED` class:
 
-```python
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights:
+---
 from gpiozero import PWMLED
-```
+
+--- /code ---
 
 The `PWMLED` class lets you control the brightness of an LED using PWM, or pulse-width modulation.
 
@@ -22,11 +30,21 @@ The `PWMLED` class lets you control the brightness of an LED using PWM, or pulse
 
 --- task ---
 
-Create a `PWMLED` object on pin 21:
+Create a `PWMLED` object using pin 21:
 
-```python
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights: 3
+---
+from gpiozero import PWMLED
+
 led = PWMLED(21)
-```
+
+--- /code ---
 
 --- /task ---
 
@@ -34,11 +52,23 @@ led = PWMLED(21)
 
 Test you can control the LED manually:
 
-```python
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights: 5-7
+---
+from gpiozero import PWMLED
+
+led = PWMLED(21)
+
 led.on()  # the led should be lit
 led.off()  # the led should go off
 led.value = 0.5  # the led should be lit at half brightness
-```
+
+--- /code ---
 
 --- /task ---
 
@@ -46,9 +76,24 @@ led.value = 0.5  # the led should be lit at half brightness
 
 Now connect the LED to the potentiometer:
 
-```python
+--- code ---
+---
+language: python
+filename: main.py
+line_numbers: true
+line_number_start: 1
+line_highlights: 8
+---
+from gpiozero import PWMLED
+
+led = PWMLED(21)
+
+led.on()  # the led should be lit
+led.off()  # the led should go off
+led.value = 0.5  # the led should be lit at half brightness
 led.source = pot.values
-```
+
+--- /code ---
 
 --- /task ---
 
@@ -59,8 +104,10 @@ Turn the dial to change the LED brightness!
 --- /task ---
 
 
-
-### Source and values
+--- collapse ---
+---
+title: Source and values
+---
 
 GPIO Zero has a powerful feature: **source and values**. Every device has a `value` property (the current value) and a `values` property (a stream of the device's values at all times). Every output device has a `source` property which can be used to set what the device's value should be.
 
@@ -71,86 +118,12 @@ GPIO Zero has a powerful feature: **source and values**. Every device has a `val
 
 Rather than continuously setting the value of the LED to the value of the potentiometer in a loop, you can just pair the two devices. Therefore the line `led.source = pot.values` is equivalent to the following loop:
 
+
 ```python
 while True:
     led.value = pot.value
+
 ```
 
-### Multiple potentiometers
-
---- task ---
-
-Add a second potentiometer to your breadboard and connect it to the ADC's channel 1:
-
-    ![Second potentiometer](images/mcp3008-2pots-led.png)
-
---- /task ---
-
---- task ---
-
-Now create a second `MCP3008` object on channel 1:
-
-```python
-pot2 = MCP3008(1)
-```
-
---- /task ---
-
---- task ---
-
-Make the LED blink:
-
-    ```python
-    led.blink()
-    ```
-
-    The LED will blink continuously, one second on and one second off.
-
---- /task ---
-
---- task ---
-
-Change the `on_time` and `off_time` parameters to make it blink faster or slower:
-
-    ```python
-    led.blink(on_time=2, off_time=2)
-    led.blink(on_time=0.5, off_time=0.1)
-    ```
-
---- /task ---
-
-
---- task ---
-
-Now use a loop to change the blink times according to the potentiometer values:
-
-    ```python
-    while True:
-        print(pot.value, pot2.value)
-        led.blink(on_time=pot.value, off_time=pot2.value, n=1, background=False)
-    ```
-
-    Note you have to make it blink once in the foreground, so that each iteration gets time to finish before it updates the blink times.
-
---- /task ---
-
---- task ---
-
-Rotate the dials to make it blink at different speeds!
-
---- /task ---
-
---- task ---
-
-Also try changing `blink` to `pulse` and change `on_time` and `off_time` to `fade_in_time` and `fade_out_time` so that it fades in and out at different speeds, rather than just blinking on and off:
-
-    ```python
-    while True:
-        print(pot.value, pot2.value)
-        led.pulse(fade_in_time=pot.value, fade_out_time=pot2.value, n=1, background=False)
-    ```
-
-Rotate the dials to change the effect.
-
---- /task ---
+--- /collapse ---
 
